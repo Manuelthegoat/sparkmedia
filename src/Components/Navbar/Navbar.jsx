@@ -11,7 +11,7 @@ const Navbar = ({SearchApi, input, onUserInput, setInput}) => {
 				<div className="col-12">
 					<div className="header__content">
 						<a href="/" className="header__logo">
-							<img src="img/logo.svg" alt=""/>
+							<img src="img/logo2.png" alt=""/>
 						</a>
 						<ul className="header__nav">
 						<li className="header__nav-item">

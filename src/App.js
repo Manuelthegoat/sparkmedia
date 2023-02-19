@@ -16,6 +16,7 @@ function App() {
   const [series, setseries] = useState([])
   const [latest, setlatest] = useState([])
   const [trending, settrending] = useState([])
+  const [single, setsingle] = useState([])
   let animeUrl = 'https://gogoanime.consumet.stream/popular'
   let baseUrl = 'https://api.themoviedb.org/3'
   const navigate = useNavigate()
@@ -97,7 +98,19 @@ const fetchTrending = async () => {
 // =========  FINISH FETCH TRENDING DATA ========
 
 
-
+const fetchDetails = async (item,event) => {
+  const fetchUrl = 'https://api.themoviedb.org/3/movie/'
+  const fetched = fetchUrl+item.id+'?api_key=d04c996d2d294fba13288a5e37fb45e9&language=en-US'
+  // event.preventDefault()
+  try{
+    const res = await axios.get(fetched)
+    setsingle(res.data.results)
+    console.log(res.data.results)
+  }catch(err){
+    console.log('error don land',err)
+  }
+navigate('/single')
+}
 
 
 
@@ -151,6 +164,8 @@ useEffect(()=>{
       trending={trending}
       search={search}
       input={input}
+      fetchDetails={fetchDetails}
+      single={single}
       />
       <Footer/>
     </div>
