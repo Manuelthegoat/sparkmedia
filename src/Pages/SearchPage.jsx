@@ -1,7 +1,7 @@
 import React from 'react'
 import Search from '../Components/Search/Search'
 
-const SearchPage = ({search, input}) => {
+const SearchPage = ({search, input, searchanime, searchseries, fetchDetails, fetchsingleseries}) => {
   return (
     <div>
           <section class="section section--first section--bg" data-bg="img/section/section.jpg">
@@ -19,7 +19,7 @@ const SearchPage = ({search, input}) => {
 		</div>
 	</div>
 </section>
-       <Search  search={search} />
+       <Search  search={search} searchanime={searchanime} searchseries={searchseries} fetchDetails={fetchDetails} fetchsingleseries={fetchsingleseries} />
     </div>
   )
 }

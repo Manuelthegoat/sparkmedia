@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-const Navbar = ({SearchApi, input, onUserInput, setInput}) => {
+const Navbar = ({SearchApi, input, onUserInput, setInput, SearchSeriesApi,SearchAnimeApi}) => {
   return (
     <div>
       <header className="header">
@@ -11,7 +11,7 @@ const Navbar = ({SearchApi, input, onUserInput, setInput}) => {
 				<div className="col-12">
 					<div className="header__content">
 						<a href="/" className="header__logo">
-							<img src="img/logo2.png" alt=""/>
+							<img src="img/logo2.png" className='logoimage' alt=""/>
 						</a>
 						<ul className="header__nav">
 						<li className="header__nav-item">
@@ -30,10 +30,10 @@ const Navbar = ({SearchApi, input, onUserInput, setInput}) => {
 								<a href="/anime" className="header__nav-link">Anime</a>
 							</li>
 							<li className="header__nav-item">
-								<a href="topten" className="header__nav-link">Top 10</a>
+								<a href="/topten" className="header__nav-link">Top 10</a>
 							</li>
 							<li className="header__nav-item">
-								<a href="blog" className="header__nav-link">Blog</a>
+								<a href="/blog" className="header__nav-link">Blog</a>
 							</li>
 
 							
@@ -85,7 +85,7 @@ const Navbar = ({SearchApi, input, onUserInput, setInput}) => {
 	</div>
 
 
-	<form onSubmit={SearchApi} className="header__search">
+	<form onSubmit={SearchApi}  className="header__search">
 		<div className="container">
 			<div className="row">
 				<div className="col-12">
