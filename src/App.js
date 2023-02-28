@@ -30,13 +30,16 @@ function App() {
     setInput(target.value);
   };
   const increasePageNumber = async () => {
+   setpagenumber(Number(pagenumber+1))
+   console.log(pagenumber)
     try{
-      const res = await axios.get(baseUrl+'/movie/popular?api_key=d04c996d2d294fba13288a5e37fb45e9&language=en-US&page='+(pagenumber+1))
+      const res = await axios.get(baseUrl+'/movie/popular?api_key=d04c996d2d294fba13288a5e37fb45e9&language=en-US&page='+pagenumber)
       //  console.log(res.data.results)
       setmovie(res.data.results)
   }catch(err){
       console.log('error don land',err)
   }
+  window.scrollTo({ top: 0, behavior: 'smooth', });
     }
 
 
