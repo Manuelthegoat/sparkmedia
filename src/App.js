@@ -22,6 +22,7 @@ function App() {
   const [single, setsingle] = useState([])
   const [singleseries, setsingleseries]  = useState([])
   const [pagenumber, setpagenumber] = useState(1)
+  const [isActive, setIsActive] = useState(false);
   let animeUrl = 'https://gogoanime.consumet.stream/popular'
   let baseUrl = 'https://api.themoviedb.org/3'
   const navigate = useNavigate()
@@ -29,6 +30,22 @@ function App() {
   const onUserInput = ({target}) => {
     setInput(target.value);
   };
+  const getnumber = async (event) => {
+    let targetnumber = event.target.innerText
+    console.log(event.target.innerText);
+    setpagenumber(Number(targetnumber))
+    
+    try{
+      const res = await axios.get(baseUrl+'/movie/popular?api_key=d04c996d2d294fba13288a5e37fb45e9&language=en-US&page='+pagenumber)
+      //  console.log(res.data.results)
+      setmovie(res.data.results)
+      window.scrollTo({ top: 0, behavior: 'smooth', });
+      setIsActive(current => !current);
+  }catch(err){
+      console.log('error don land',err)
+  }
+  
+    }
   const increasePageNumber = async () => {
    setpagenumber(Number(pagenumber+1))
    console.log(pagenumber)
@@ -42,6 +59,19 @@ function App() {
   }
   
     }
+    const decreasePageNumber = async () => {
+      setpagenumber(Number(pagenumber-1))
+      console.log(pagenumber)
+       try{
+         const res = await axios.get(baseUrl+'/movie/popular?api_key=d04c996d2d294fba13288a5e37fb45e9&language=en-US&page='+pagenumber)
+         //  console.log(res.data.results)
+         setmovie(res.data.results)
+         window.scrollTo({ top: 0, behavior: 'smooth', });
+     }catch(err){
+         console.log('error don land',err)
+     }
+     
+       }
 
 
   // ========= FETCH ANIME DATA ===========
@@ -228,7 +258,10 @@ useEffect(()=>{
       />
       
       <Routing 
+      decreasePageNumber={decreasePageNumber}
       increasePageNumber={increasePageNumber}
+      isActive={isActive}
+      getnumber={getnumber}
       pagenumber={pagenumber}
       setpagenumber={setpagenumber}
       response={response}
