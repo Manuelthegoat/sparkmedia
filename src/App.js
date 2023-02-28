@@ -29,12 +29,14 @@ function App() {
   const onUserInput = ({target}) => {
     setInput(target.value);
   };
-  const increasePageNumber = () => {
-    if (movie){
-
-      setpagenumber(pagenumber+=1)
-    }
-    console.log(pagenumber)
+  const increasePageNumber = async () => {
+    try{
+      const res = await axios.get(baseUrl+'/movie/popular?api_key=d04c996d2d294fba13288a5e37fb45e9&language=en-US&page='+(pagenumber+1))
+      //  console.log(res.data.results)
+      setmovie(res.data.results)
+  }catch(err){
+      console.log('error don land',err)
+  }
     }
 
 
