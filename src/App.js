@@ -23,6 +23,7 @@ function App() {
   const [singleseries, setsingleseries]  = useState([])
   const [pagenumber, setpagenumber] = useState(1)
   const [isActive, setIsActive] = useState(false);
+  const [loading, setLoading] = useState(false)
   let animeUrl = 'https://gogoanime.consumet.stream/popular'
   let baseUrl = 'https://api.themoviedb.org/3'
   const navigate = useNavigate()
@@ -36,9 +37,12 @@ function App() {
     setpagenumber(Number(targetnumber))
     
     try{
+      setLoading(true)
       const res = await axios.get(baseUrl+'/movie/popular?api_key=d04c996d2d294fba13288a5e37fb45e9&language=en-US&page='+pagenumber)
       //  console.log(res.data.results)
+      setLoading(false)
       setmovie(res.data.results)
+
       window.scrollTo({ top: 0, behavior: 'smooth', });
       setIsActive(current => !current);
   }catch(err){
@@ -259,6 +263,7 @@ useEffect(()=>{
       
       <Routing 
       decreasePageNumber={decreasePageNumber}
+      loading={loading}
       increasePageNumber={increasePageNumber}
       isActive={isActive}
       getnumber={getnumber}

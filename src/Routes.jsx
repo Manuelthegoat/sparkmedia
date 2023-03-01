@@ -9,13 +9,13 @@ import SearchPage from './Pages/SearchPage'
 import Series from './Pages/Series'
 import Seriessingle from './Pages/Seriessingle'
 import Single from './Pages/Single'
-const Routing = ({response,pagenumber,isActive, getnumber,decreasePageNumber,setpagenumber, movie,increasePageNumber, series, latest, trending, search, input, fetchDetails,fetchsingleseries, singleseries, single, searchanime, searchseries}) => {
+const Routing = ({response,pagenumber,isActive, getnumber,decreasePageNumber,setpagenumber,loading, movie,increasePageNumber, series, latest, trending, search, input, fetchDetails,fetchsingleseries, singleseries, single, searchanime, searchseries}) => {
   return (
     <div>
       <Routes>
           <Route path='/' element={<Home latest={latest} trending={trending} fetchsingleseries={fetchsingleseries} search={search} movie={movie} />}/>
           <Route path='*' element={<Error/>}/>
-          <Route path='/movies' element={<AllMovies isActive={isActive} getnumber={getnumber} pagenumber={pagenumber}decreasePageNumber={decreasePageNumber} setpagenumber={setpagenumber} movie={movie} increasePageNumber={increasePageNumber} fetchDetails={fetchDetails} />}/>
+          <Route path='/movies' element={<AllMovies loading={loading} isActive={isActive} getnumber={getnumber} pagenumber={pagenumber}decreasePageNumber={decreasePageNumber} setpagenumber={setpagenumber} movie={movie} increasePageNumber={increasePageNumber} fetchDetails={fetchDetails} />}/>
           <Route path='/anime' element={<Anime response={response}  />}/>
           <Route path='/series' element={<Series series={series} fetchsingleseries={fetchsingleseries} />}/>
           <Route path={`/search/${input}`} element={<SearchPage search={search} fetchDetails={fetchDetails} fetchsingleseries={fetchsingleseries} searchanime={searchanime} input={input} searchseries={searchseries} />}/>

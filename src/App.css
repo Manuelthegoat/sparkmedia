@@ -53,6 +53,27 @@
 body{
   overflow-x: hidden;
 }
+.mado{
+  color: green !important;
+}
+.swiper-button-next{
+  color: white !important;
+  background-image: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
+  box-shadow: 0 0 20px 0 rgba(255,88,96,0.5);
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 8px;
+  padding-left: 6px;
+}
+.swiper-button-prev{
+  color: white !important;
+  background-image: linear-gradient(90deg, #ff55a5 0%, #ff5860 100%);
+  box-shadow: 0 0 20px 0 rgba(255,88,96,0.5);
+  width: 50px !important;
+  height: 50px !important;
+  border-radius: 8px;
+  padding-right: 6px;
+}
 .small-size{
   display: none;
 }

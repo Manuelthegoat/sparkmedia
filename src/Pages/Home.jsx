@@ -8,8 +8,8 @@ const Home = ({latest, trending, search, movie, fetchDetails,fetchsingleseries})
   return (
     <div>
       <Hero latest={latest} fetchsingleseries={fetchsingleseries}/>
-      {/* <Search search={search}/> */}
       <Movies movie={movie}  fetchDetails={fetchDetails} />
+      {/* <Search search={search}/> */}
       <Premiere trending={trending}  fetchDetails={fetchDetails} />
     </div>
   )
