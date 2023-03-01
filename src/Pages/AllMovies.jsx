@@ -5,7 +5,9 @@ import Premiere from '../Components/Premiere/Premiere'
 const AllMovies = ({movie,loading, fetchDetails,increasePageNumber,decreasePageNumber,isActive, setpagenumber,getnumber}) => {
     
     let imgurl = 'https://www.themoviedb.org/t/p/w440_and_h660_face'
-    
+    if (loading){
+        return <h1 className='section__title pb'>LOADING</h1>
+    }
   return (
     <div>
     <section class="section section--first section--bg" data-bg="img/section/section.jpg">

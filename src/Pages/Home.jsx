@@ -9,6 +9,7 @@ const Home = ({latest, trending, search, movie, fetchDetails,fetchsingleseries})
     <div>
       <Hero latest={latest} fetchsingleseries={fetchsingleseries}/>
       <Movies movie={movie}  fetchDetails={fetchDetails} />
+      
       {/* <Search search={search}/> */}
       <Premiere trending={trending}  fetchDetails={fetchDetails} />
     </div>

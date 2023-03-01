@@ -74,6 +74,9 @@ body{
   border-radius: 8px;
   padding-right: 6px;
 }
+.pb{
+  padding-top: 20rem;
+}
 .small-size{
   display: none;
 }
