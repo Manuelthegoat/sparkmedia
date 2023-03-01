@@ -76,6 +76,7 @@ body{
 }
 .pb{
   padding-top: 20rem;
+  text-align: center;
 }
 .small-size{
   display: none;
